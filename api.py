@@ -1,33 +1,53 @@
 from mfrc522 import SimpleMFRC522
 import RPi.GPIO as GPIO
+import BlynkLib
 
 GPIO.setwarnings(False)
 reader = SimpleMFRC522()
 
-def addPerson():
-	try:
-		print("Type the name of the person you want to add:")
-		text = input()
-		print("Tap tag")
-		reader.write(text)
-		print("Added the member",text)
-	finally:
-		GPIO.cleanup()
+def start(code):
+	blynk = BlynkLib.Blynk(code)
 
-def getID():
-	try:
-		print("Tap tag to get ID number")
-		print("Tag number is")
-		id, text = reader.read()
-		return id
-	finally:
-		GPIO.cleanup()
+	# Add Member
+	@blynk.VIRTUAL_WRITE(1)
+	def AddMember(value):
+        	if value==[u'1']:
+			try:
+				blynk.virtual_write(10,"Type name of person to add:")
 
-def getPerson():
-	try:
-		print("Tap tag to get name")
-		print("Name is")
-		id, text = reader.read()
-		return text
-	finally:
-		GPIO.cleanup()
+				@blynk.VIRTUAL_WRITE(9)
+				def ReadInput(str):
+					text = ' '.join(str)
+					blynk.virtual_write(10,"Tap tag")
+					reader.write(text)
+					blynk.virtual_write(10,"Added the member "+text)
+
+					blynk.virtual_write(1,0)
+			finally:
+				GPIO.cleanup()
+	# GetID
+	@blynk.VIRTUAL_WRITE(2)
+	def getID(value):
+		if value==[u'1']:
+			try:
+				blynk.virtual_write(10,"Tap tag to get ID number")
+				id, text = reader.read()
+				blynk.virtual_write(10,id)
+				blynk.virtual_write(2,0)
+			finally:
+				GPIO.cleanup()
+
+	# GetName
+	@blynk.VIRTUAL_WRITE(3)
+	def getPerson(value):
+		if value==[u'1']:
+			try:
+				blynk.virtual_write(10,"Tap tag to get name")
+				id, text = reader.read()
+				blynk.virtual_write(10,text)
+				blynk.virtual_write(3,0)
+			finally:
+				GPIO.cleanup()
+
+	while True:
+		blynk.run()
