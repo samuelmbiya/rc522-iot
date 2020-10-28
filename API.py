@@ -44,34 +44,37 @@ class API:
 			(status,TagType) = self.MIFAREReader.MFRC522_Request(self.MIFAREReader.PICC_REQIDL) #Reqest for card reader to listen for a nearby tag
 			if status == self.MIFAREReader.MI_OK: # If tag is detected
 				(status,uid) = self.MIFAREReader.MFRC522_Anticoll() #Get status of the reader and uid of tag
-				self.MIFAREReader.MFRC522_SelectTag(uid) #Searches for tag based on uid in registers
+			if status == self.MIFAREReader.MI_OK: #If the uid is found
+				key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
+                                self.MIFAREReader.MFRC522_SelectTag(uid) #Select the tag associated with the uid in registers
+                                status = self.MIFAREReader.MFRC522_Auth(self.MIFAREReader.PICC_AUTHENT1A, 8, key, uid) #This authenticates the tag
+                                if status == self.MIFAREReader.MI_OK: #If authentication is passed 
+					text = list(input) #Convert input string into list
+                               		name = [] #Initialize empty array to populate with data and send to card
 
-				text = list(input) #Convert input string into list
-                               	name = [] #Initialize empty array to populate with data and send to card
+					#Add each element of the input list to the first elements in empty array
+					for k in range(0,len(text)):
+                	                	name.append(ord(text[k])) #Comvert each character to an ASCII value
 
-				#Add each element of the input list to the first elements in empty array
-				for k in range(0,len(text)):
-                                	name.append(ord(text[k])) #Comvert each character to an ASCII value
+					#Populate the rest of the 16 elements of the empty array with spaces
+                              		for j in range(len(text),16):
+                                     		name.append(ord(chr(32))) #Convert each character to an ASCII value
 
-				#Populate the rest of the 16 elements of the empty array with spaces
-                              	for j in range(len(text),16):
-                                     	name.append(ord(chr(32))) #Convert each character to an ASCII value
-
-                             	self.MIFAREReader.MFRC522_Write(8,name) #Write to card
+                       		      	self.MIFAREReader.MFRC522_Write(8,name) #Write to card
 				
-				i = 0
-                              	arr=[] #Initialize empty array to populate with data to print
+					i = 0
+                             	 	arr=[] #Initialize empty array to populate with data to print
 
-				#Convert each element in array from ASCII to string character
-                               	while name[i]!=32: #While element is not a space
-                                       	letter = chr(name[i])
-                                       	i+=1
-                                      	arr.append(letter)
+					#Convert each element in array from ASCII to string character
+                         	      	while name[i]!=32: #While element is not a space
+                                	       	letter = chr(name[i])
+                                       		i+=1
+                                      		arr.append(letter)
 
-                       		namestring = ''.join(arr) #Convert array to string
-				self.MIFAREReader.MFRC522_StopCrypto1() #Stop reading
-				reading=False
-				return namestring #return string to be printed
+                       			namestring = ''.join(arr) #Convert array to string
+					self.MIFAREReader.MFRC522_StopCrypto1() #Stop reading
+					reading=False
+					return namestring #return string to be printed
 
 	#Return text from tag
 	def getTextFromTag(self):
