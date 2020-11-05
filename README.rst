@@ -16,20 +16,23 @@ rc522-iot
 
 
 
-A python wrapper API that allows you to interface with the mfrc522 RFID card reader
+A python wrapper API that allows you to interface with the mfrc522 RFID card reader and a Raspberry Pi
 
 
 * Free software: MIT license
-* Documentation: https://rc522-iot.readthedocs.io.
 
 Requirements
 --------
-The code requires you to have the mfrc522 library installed from the following command ``sudo pip3 install mfrc522``
+The code requires you to have the mfrc522 and RPi.GPIO libraries installed. They can be installed using the following commands respectively ``sudo pip3 install mfrc522`` and ``pip install RPi.GPIO``
 
 Features
 --------
 
-* TODO
+This API provides you with functions allowing you to:
+* Enable/disable SPI communication between the Raspberry Pi and the RFID card reader
+* Reset RFID cards and tags by clearing the text stored in them
+* Read the text and id number associated to RFID cards and tags
+* Write text to RFID cards and tags
 
 Credits
 -------
@@ -40,18 +43,19 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
 
-This API made use of `Mario Gómez`_ class to interface with the NFC reader Module MFRC522 on the Raspberry Pi. It can be found `here`_
+This API made use of `Mario Gómez`_' class to interface with the NFC reader Module MFRC522 on the Raspberry Pi. It can be found here_
 
 .. _`Mario Gómez`: https://github.com/mxgxw 
-.._`here` :https://github.com/mxgxw/MFRC522-python
+.._here :https://github.com/mxgxw/MFRC522-python
+
 
 Contributors
 ------------
 * EEE3097S Group 19:
 
-`@IviweMalotana`_
-`@SKMBiya`_
+|Iviwe Malotana: `@IviweMalotana`_
+|Samuel Mbiya: `@SKMBiya`_
 
 
 .. _`@IviweMalotana`: https://github.com/IviweMalotana
-.. _`@SKMBiya`: https://github.com/SKMbiya
+.. _`@SKMbiya`: https://github.com/SKMbiya
