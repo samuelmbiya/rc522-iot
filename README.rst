@@ -46,7 +46,7 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 This API made use of `Mario Gómez`_' class to interface with the NFC reader Module MFRC522 on the Raspberry Pi. It can be found here_
 
 .. _`Mario Gómez`: https://github.com/mxgxw 
-.._here :https://github.com/mxgxw/MFRC522-python
+.._here: https://github.com/mxgxw/MFRC522-python
 
 
 Contributors
