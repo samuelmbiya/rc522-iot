@@ -16,12 +16,15 @@ rc522-iot
 
 
 
-An API that allows you to interface with the mfrc522 RFID card reader
+A python wrapper API that allows you to interface with the mfrc522 RFID card reader
 
 
 * Free software: MIT license
 * Documentation: https://rc522-iot.readthedocs.io.
 
+Requirements
+--------
+The code requires you to have the mfrc522 library installed from the following command ```sudo pip3 install mfrc522```
 
 Features
 --------
@@ -35,3 +38,12 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+This API made use of [Mario Gómez'](https://github.com/mxgxw) class to interface with the NFC reader Module MFRC522 on the Raspberry Pi. It can be found [here](https://github.com/mxgxw/MFRC522-python)
+
+Contributors
+------------
+* EEE3097S Group 19:
+[@IviweMalotana](https://github.com/IviweMalotana)
+[@SKMBiya](https://github.com/SKMbiya)
