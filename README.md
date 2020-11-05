@@ -21,6 +21,19 @@ Usage
 Copy the class into your project directory and import it at the top of your script, for your personal use.
 Refer to Table 1 below, for how to connect the Raspberry Pi and RFID card reader
 
+Table 1:
+| Name | Pin # | Pin name   |
+|:------:|:-------:|:------------:|
+| SDA  | 24    | GPIO8      |
+| SCK  | 23    | GPIO11     |
+| MOSI | 19    | GPIO10     |
+| MISO | 21    | GPIO9      |
+| IRQ  | None  | None       |
+| GND  | Any   | Any Ground |
+| RST  | 22    | GPIO25     |
+| 3.3V | 1     | 3V3        |
+[Source](https://github.com/mxgxw/MFRC522-python/blob/master/README.md)
+
 Alternatively, you can also have  a look at the demonstration application that was made for the API. It can be found [here](https://github.com/SKMbiya/rc522-iot-demo)
 
 Credits
