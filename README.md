@@ -16,6 +16,13 @@ This API provides you with functions allowing you to:
 * Read the text and id number associated to RFID cards and tags
 * Write text to RFID cards and tags
 
+Usage
+-----
+Copy the class into your project directory and import it at the top of your script, for your personal use.
+Refer to Table 1 below, for how to connect the Raspberry Pi and RFID card reader
+
+Alternatively, you can also have  a look at the demonstration application that was made for the API. It can be found [here](https://github.com/SKMbiya/rc522-iot-demo)
+
 Credits
 -------
 
