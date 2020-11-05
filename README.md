@@ -26,8 +26,8 @@ Contributors
 ------------
 * EEE3097S Group 19:
 
-[@IviweMalotana](https://github.com/IviweMalotana)\
-[@SKMbiya](https://github.com/SKMbiya)
+Iviwe Malotana:[@IviweMalotana](https://github.com/IviweMalotana)\
+Samuel Mbiya[@SKMbiya](https://github.com/SKMbiya)
 
 License
 -------
