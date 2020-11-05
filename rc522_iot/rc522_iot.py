@@ -1,5 +1,4 @@
 """Main module."""
-import signal
 import mfrc522
 import RPi.GPIO as GPIO
 
@@ -10,22 +9,52 @@ class rc522_iot:
 	#Create object of MFRC522 class
 	MIFAREReader = mfrc522.MFRC522()
 
+
+
 	def _init_(self):
+		"""Creates an object of the MFRC522 class"""
 		self.MIFAREReader = mfrc522.MFRC522()
 
 	#Controls communication via SPI between pi and card reader
 	def SPICommunication(self,value):
+		"""Controls the communication via SPI between the RaspberryPi and the RFID card reader
+
+		Keyword arguments:
+		value -- This value determines whether the SPI communication is enabled or disabled
+		If value = 0: the communication is terminated, else if value = 1: communication is maintained 
+
+		"""
 		if value==0: #If SPI Enable button is switched off
 			self.MIFAREReader.Close_MFRC522() #Terminates SPI commuunication
 			exit() #Exits program
 
 	#Resets the text associated with a tag
 	def Reset(self,value):
+		"""Resets the test associated with an RFID card or tag
+
+		Keyword arguments:
+		value -- This value determines whether the card is reset or not
+		If value = 1: the card is reset, by writing '' to the card
+
+		"""
 		if value==1: #If the reset button is pressed
 			return self.WriteToCard('') #Write "nothing" to the card
 
 	#Returns the ID number associated with a tag
 	def getTagID(self):
+		"""Returns the ID number associated with the RFID card or tag
+		
+		Keyword arguments and methods:
+
+		MFRC522_Request() -- Requests the card reader to listen for a tag nearby
+		MFRC522_Anticoll() -- Gets the status of the reader and the UID (Unique Identifier) of the tag
+		
+		status -- Status value of the RFID card reader
+		uid -- unique identifier of the RFID tag
+		reading -- boolean variable used to start and end the search for RFID cards nearby. When set to true, it indicates that the RFID card reader is listening for RFID tags nearby
+		n  -- the RFID tag id number
+
+		"""
 		reading=True
 		while reading==True:
 			(status,TagType) = self.MIFAREReader.MFRC522_Request(self.MIFAREReader.PICC_REQIDL) #Request for card reader to listen for a tag nearby
@@ -41,6 +70,20 @@ class rc522_iot:
 
 	#Writes text to the card and returns the text written
 	def WriteToCard(self,input):
+		"""Writes text to the RFID card or tag and returns the text that has been written to it
+
+		Keywords and methods:
+
+		MFRC522_SelectTag(uid) -- Selects the tag assoicated with the of the RFID tag
+		MFRC522_Auth() -- Authenticates the tag
+		MFRC522_StopCrypto1() -- Terminates reading from the RFID tag
+
+		input -- The input string to be written to the RFID tag
+		text -- The input string in the form of a list object
+		name -- An array which stores the characters of the input string, once they have been converted to ASCII
+		namestring -- The string which is returned. 
+
+		"""
 		reading=True
 		while reading==True:
 			(status,TagType) = self.MIFAREReader.MFRC522_Request(self.MIFAREReader.PICC_REQIDL) #Reqest for card reader to listen for a nearby tag
@@ -80,6 +123,13 @@ class rc522_iot:
 
 	#Return text from tag
 	def getTextFromTag(self):
+		"""Returns the text stored on the RFID card reader
+
+		Keywords and methods:
+
+		MFRC522_Read() -- Reads from the RFID tag
+
+		"""
 		reading=True
 		while reading==True:
 			(status,TagType) = self.MIFAREReader.MFRC522_Request(self.MIFAREReader.PICC_REQIDL) #Request for card reader to listen for a neearby tag
@@ -105,6 +155,14 @@ class rc522_iot:
 
 	#Return ID and text 
 	def getTextAndID(self):
+		"""Returns both the id number and text associated with an RFID tag, in user friendly message.
+
+		Keywords and methods:
+
+		name -- An array containing the text that has been read from the RFID card in the ASCII format
+		namestring -- The text stored on the card, once converted to a string
+
+		"""
 		reading=True
 		while reading==True:
 			(status,TagType) = self.MIFAREReader.MFRC522_Request(self.MIFAREReader.PICC_REQIDL) #Request card reader to detect a card
