@@ -1,23 +1,7 @@
-=========
 rc522-iot
 =========
 
-
-.. image:: https://img.shields.io/pypi/v/rc522_iot.svg
-        :target: https://pypi.python.org/pypi/rc522_iot
-
-.. image:: https://img.shields.io/travis/SKMbiya/rc522_iot.svg
-        :target: https://travis-ci.com/SKMbiya/rc522_iot
-
-.. image:: https://readthedocs.org/projects/rc522-iot/badge/?version=latest
-        :target: https://rc522-iot.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-
-
 A python wrapper API that allows you to interface with the mfrc522 RFID card reader and a Raspberry Pi
-
 
 * Free software: MIT license
 
@@ -44,5 +28,5 @@ Contributors
 ------------
 * EEE3097S Group 19:
 
-[@IviweMalotana](https://github.com/IviweMalotana)
+[@IviweMalotana](https://github.com/IviweMalotana)\
 [@SKMBiya](https://github.com/SKMbiya)

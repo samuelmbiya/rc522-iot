@@ -1,4 +1,3 @@
-=======
 Credits and Acknowledgements
 =======
 
