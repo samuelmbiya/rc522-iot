@@ -32,6 +32,7 @@ Table 1:
 | GND  | Any   | Any Ground |
 | RST  | 22    | GPIO25     |
 | 3.3V | 1     | 3V3        |
+
 [Source](https://github.com/mxgxw/MFRC522-python/blob/master/README.md)
 
 Alternatively, you can also have  a look at the demonstration application that was made for the API. It can be found [here](https://github.com/SKMbiya/rc522-iot-demo)
