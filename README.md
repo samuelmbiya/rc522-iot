@@ -37,25 +37,12 @@ This API provides you with functions allowing you to:
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
-
-
-This API made use of `Mario Gómez`_' class to interface with the NFC reader Module MFRC522 on the Raspberry Pi. It can be found here_
-
-.. _`Mario Gómez`: https://github.com/mxgxw 
-.._here: https://github.com/mxgxw/MFRC522-python
+This API made use of [Mario Gómez'](https://github.com/mxgxw) class to interface with the NFC reader Module MFRC522 on the Raspberry Pi. It can be found [here](https://github.com/mxgxw/MFRC522-python)
 
 
 Contributors
 ------------
 * EEE3097S Group 19:
 
-|Iviwe Malotana: `@IviweMalotana`_
-|Samuel Mbiya: `@SKMBiya`_
-
-
-.. _`@IviweMalotana`: https://github.com/IviweMalotana
-.. _`@SKMbiya`: https://github.com/SKMbiya
+[@IviweMalotana](https://github.com/IviweMalotana)
+[@SKMBiya](https://github.com/SKMbiya)
