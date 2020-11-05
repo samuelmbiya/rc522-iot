@@ -1,7 +1,7 @@
 rc522-iot
 =========
 
-A python wrapper API that allows you to interface with the mfrc522 RFID card reader and a Raspberry Pi
+A python wrapper API that allows you to interface with the mfrc522 RFID card reader and a Raspberry Pi Zero W
 
 Requirements
 --------
