@@ -3,11 +3,9 @@ rc522-iot
 
 A python wrapper API that allows you to interface with the mfrc522 RFID card reader and a Raspberry Pi
 
-* Free software: MIT license
-
 Requirements
 --------
-The code requires you to have the mfrc522 and RPi.GPIO libraries installed. They can be installed using the following commands respectively ``sudo pip3 install mfrc522`` and ``pip install RPi.GPIO``
+This code requires you to have the mfrc522 and RPi.GPIO libraries installed. They can be installed using the following commands respectively ``sudo pip3 install mfrc522`` and ``pip install RPi.GPIO``. It is also recommended that you make use of a python virtual environment before installing the libraries, by making use of tools such as venv or virtualenv.
 
 Features
 --------
@@ -29,4 +27,9 @@ Contributors
 * EEE3097S Group 19:
 
 [@IviweMalotana](https://github.com/IviweMalotana)\
-[@SKMBiya](https://github.com/SKMbiya)
+[@SKMbiya](https://github.com/SKMbiya)
+
+License
+-------
+
+This project is under the MIT License
